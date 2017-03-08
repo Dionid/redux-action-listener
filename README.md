@@ -37,3 +37,19 @@ class FormComponent extends React.Component {
 export default listenActions(FormComponent)
 ```
 From point you wrap your component with `listenActions` it will give you props function called `addActionListeners`, where you can insert object where key is name of action and value is function that will be called when action fires.
+
+## Get started
+
+First you must add middleware to your store. Just import this library as default and insert it in middlewares:
+```
+import actionListener from 'readux-action-listener'
+
+const configureStore = () => {
+	const middlewares = [ actionListener ]
+	return createStore(
+		rootReducer,
+		applyMiddleware(...middlewares)
+		)
+	)
+}
+```
